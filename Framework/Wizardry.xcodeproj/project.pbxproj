@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03ADACAF1CDD8788004F9826 /* WizardStepPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADACAE1CDD8788004F9826 /* WizardStepPlacement.swift */; };
+		03ADACB01CDD8788004F9826 /* WizardStepPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADACAE1CDD8788004F9826 /* WizardStepPlacement.swift */; };
+		03DE348D1CD5BE2E00DBF6CE /* Wizardry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DE34821CD5BE2E00DBF6CE /* Wizardry.framework */; };
+		03DE34921CD5BE2E00DBF6CE /* WizardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE34911CD5BE2E00DBF6CE /* WizardTests.swift */; };
+		03DE349D1CD5BEEF00DBF6CE /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE349C1CD5BEEF00DBF6CE /* Wizard.swift */; };
+		03DE349E1CD5BEEF00DBF6CE /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE349C1CD5BEEF00DBF6CE /* Wizard.swift */; };
+		03DE34A01CD5C2EC00DBF6CE /* WizardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE349F1CD5C2EC00DBF6CE /* WizardDelegate.swift */; };
+		03DE34A11CD5C2EC00DBF6CE /* WizardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE349F1CD5C2EC00DBF6CE /* WizardDelegate.swift */; };
+		03FAF7061CD6343B009B1092 /* WizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7051CD6343B009B1092 /* WizardStep.swift */; };
+		03FAF7071CD6343B009B1092 /* WizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7051CD6343B009B1092 /* WizardStep.swift */; };
+		03FAF7091CD6380B009B1092 /* WizardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7081CD6380B009B1092 /* WizardDataSource.swift */; };
+		03FAF70A1CD6380B009B1092 /* WizardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7081CD6380B009B1092 /* WizardDataSource.swift */; };
+		03FAF7101CD6595C009B1092 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF70F1CD6595C009B1092 /* MockDataSource.swift */; };
+		03FAF7121CD659CD009B1092 /* MockStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7111CD659CD009B1092 /* MockStep.swift */; };
+		03FAF7141CD65E42009B1092 /* MockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7131CD65E42009B1092 /* MockDelegate.swift */; };
+		03FAF7171CD6CD37009B1092 /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7161CD6CD37009B1092 /* WizardViewController.swift */; };
+		03FAF7181CD6CD37009B1092 /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7161CD6CD37009B1092 /* WizardViewController.swift */; };
+		03FAF71A1CD6DE0D009B1092 /* WizardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FAF7191CD6DE0D009B1092 /* WizardViewControllerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03DE348E1CD5BE2E00DBF6CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03DE34791CD5BE2D00DBF6CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03DE34811CD5BE2D00DBF6CE;
+			remoteInfo = Wizardry;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03ADACAE1CDD8788004F9826 /* WizardStepPlacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardStepPlacement.swift; sourceTree = "<group>"; };
+		03DE34821CD5BE2E00DBF6CE /* Wizardry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wizardry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03DE34871CD5BE2E00DBF6CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DE348C1CD5BE2E00DBF6CE /* WizardryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WizardryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03DE34911CD5BE2E00DBF6CE /* WizardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardTests.swift; sourceTree = "<group>"; };
+		03DE34931CD5BE2E00DBF6CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DE349C1CD5BEEF00DBF6CE /* Wizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
+		03DE349F1CD5C2EC00DBF6CE /* WizardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardDelegate.swift; sourceTree = "<group>"; };
+		03FAF7051CD6343B009B1092 /* WizardStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardStep.swift; sourceTree = "<group>"; };
+		03FAF7081CD6380B009B1092 /* WizardDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardDataSource.swift; sourceTree = "<group>"; };
+		03FAF70F1CD6595C009B1092 /* MockDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
+		03FAF7111CD659CD009B1092 /* MockStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStep.swift; sourceTree = "<group>"; };
+		03FAF7131CD65E42009B1092 /* MockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDelegate.swift; sourceTree = "<group>"; };
+		03FAF7161CD6CD37009B1092 /* WizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
+		03FAF7191CD6DE0D009B1092 /* WizardViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardViewControllerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03DE347E1CD5BE2D00DBF6CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03DE34891CD5BE2E00DBF6CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03DE348D1CD5BE2E00DBF6CE /* Wizardry.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03DE34781CD5BE2D00DBF6CE = {
+			isa = PBXGroup;
+			children = (
+				03DE34841CD5BE2E00DBF6CE /* Wizardry */,
+				03DE34901CD5BE2E00DBF6CE /* WizardryTests */,
+				03DE34831CD5BE2E00DBF6CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03DE34831CD5BE2E00DBF6CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03DE34821CD5BE2E00DBF6CE /* Wizardry.framework */,
+				03DE348C1CD5BE2E00DBF6CE /* WizardryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03DE34841CD5BE2E00DBF6CE /* Wizardry */ = {
+			isa = PBXGroup;
+			children = (
+				03FAF71C1CD6DE2F009B1092 /* Config */,
+				03DE349C1CD5BEEF00DBF6CE /* Wizard.swift */,
+				03FAF7081CD6380B009B1092 /* WizardDataSource.swift */,
+				03DE349F1CD5C2EC00DBF6CE /* WizardDelegate.swift */,
+				03FAF7051CD6343B009B1092 /* WizardStep.swift */,
+				03ADACAE1CDD8788004F9826 /* WizardStepPlacement.swift */,
+				03FAF7161CD6CD37009B1092 /* WizardViewController.swift */,
+			);
+			path = Wizardry;
+			sourceTree = "<group>";
+		};
+		03DE34901CD5BE2E00DBF6CE /* WizardryTests */ = {
+			isa = PBXGroup;
+			children = (
+				03FAF71B1CD6DE25009B1092 /* Config */,
+				03FAF70E1CD65939009B1092 /* Mocks */,
+				03DE34911CD5BE2E00DBF6CE /* WizardTests.swift */,
+				03FAF7191CD6DE0D009B1092 /* WizardViewControllerTests.swift */,
+			);
+			path = WizardryTests;
+			sourceTree = "<group>";
+		};
+		03FAF70E1CD65939009B1092 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				03FAF70F1CD6595C009B1092 /* MockDataSource.swift */,
+				03FAF7131CD65E42009B1092 /* MockDelegate.swift */,
+				03FAF7111CD659CD009B1092 /* MockStep.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		03FAF71B1CD6DE25009B1092 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				03DE34931CD5BE2E00DBF6CE /* Info.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		03FAF71C1CD6DE2F009B1092 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				03DE34871CD5BE2E00DBF6CE /* Info.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		03DE347F1CD5BE2D00DBF6CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		03DE34811CD5BE2D00DBF6CE /* Wizardry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03DE34961CD5BE2E00DBF6CE /* Build configuration list for PBXNativeTarget "Wizardry" */;
+			buildPhases = (
+				03DE347D1CD5BE2D00DBF6CE /* Sources */,
+				03DE347E1CD5BE2D00DBF6CE /* Frameworks */,
+				03DE347F1CD5BE2D00DBF6CE /* Headers */,
+				03DE34801CD5BE2D00DBF6CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wizardry;
+			productName = Wizardry;
+			productReference = 03DE34821CD5BE2E00DBF6CE /* Wizardry.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		03DE348B1CD5BE2E00DBF6CE /* WizardryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03DE34991CD5BE2E00DBF6CE /* Build configuration list for PBXNativeTarget "WizardryTests" */;
+			buildPhases = (
+				03DE34881CD5BE2E00DBF6CE /* Sources */,
+				03DE34891CD5BE2E00DBF6CE /* Frameworks */,
+				03DE348A1CD5BE2E00DBF6CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03DE348F1CD5BE2E00DBF6CE /* PBXTargetDependency */,
+			);
+			name = WizardryTests;
+			productName = WizardryTests;
+			productReference = 03DE348C1CD5BE2E00DBF6CE /* WizardryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03DE34791CD5BE2D00DBF6CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = iJoshSmith;
+				TargetAttributes = {
+					03DE34811CD5BE2D00DBF6CE = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					03DE348B1CD5BE2E00DBF6CE = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 03DE347C1CD5BE2D00DBF6CE /* Build configuration list for PBXProject "Wizardry" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 03DE34781CD5BE2D00DBF6CE;
+			productRefGroup = 03DE34831CD5BE2E00DBF6CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03DE34811CD5BE2D00DBF6CE /* Wizardry */,
+				03DE348B1CD5BE2E00DBF6CE /* WizardryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03DE34801CD5BE2D00DBF6CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03DE348A1CD5BE2E00DBF6CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03DE347D1CD5BE2D00DBF6CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03DE349D1CD5BEEF00DBF6CE /* Wizard.swift in Sources */,
+				03FAF7091CD6380B009B1092 /* WizardDataSource.swift in Sources */,
+				03ADACAF1CDD8788004F9826 /* WizardStepPlacement.swift in Sources */,
+				03FAF7171CD6CD37009B1092 /* WizardViewController.swift in Sources */,
+				03FAF7061CD6343B009B1092 /* WizardStep.swift in Sources */,
+				03DE34A01CD5C2EC00DBF6CE /* WizardDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03DE34881CD5BE2E00DBF6CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03FAF7181CD6CD37009B1092 /* WizardViewController.swift in Sources */,
+				03FAF7101CD6595C009B1092 /* MockDataSource.swift in Sources */,
+				03FAF7121CD659CD009B1092 /* MockStep.swift in Sources */,
+				03FAF7141CD65E42009B1092 /* MockDelegate.swift in Sources */,
+				03FAF7071CD6343B009B1092 /* WizardStep.swift in Sources */,
+				03DE349E1CD5BEEF00DBF6CE /* Wizard.swift in Sources */,
+				03DE34921CD5BE2E00DBF6CE /* WizardTests.swift in Sources */,
+				03FAF71A1CD6DE0D009B1092 /* WizardViewControllerTests.swift in Sources */,
+				03FAF70A1CD6380B009B1092 /* WizardDataSource.swift in Sources */,
+				03DE34A11CD5C2EC00DBF6CE /* WizardDelegate.swift in Sources */,
+				03ADACB01CDD8788004F9826 /* WizardStepPlacement.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03DE348F1CD5BE2E00DBF6CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03DE34811CD5BE2D00DBF6CE /* Wizardry */;
+			targetProxy = 03DE348E1CD5BE2E00DBF6CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03DE34941CD5BE2E00DBF6CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		03DE34951CD5BE2E00DBF6CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		03DE34971CD5BE2E00DBF6CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Wizardry/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.Wizardry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		03DE34981CD5BE2E00DBF6CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Wizardry/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.Wizardry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		03DE349A1CD5BE2E00DBF6CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WizardryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.WizardryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		03DE349B1CD5BE2E00DBF6CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WizardryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.WizardryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03DE347C1CD5BE2D00DBF6CE /* Build configuration list for PBXProject "Wizardry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03DE34941CD5BE2E00DBF6CE /* Debug */,
+				03DE34951CD5BE2E00DBF6CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03DE34961CD5BE2E00DBF6CE /* Build configuration list for PBXNativeTarget "Wizardry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03DE34971CD5BE2E00DBF6CE /* Debug */,
+				03DE34981CD5BE2E00DBF6CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03DE34991CD5BE2E00DBF6CE /* Build configuration list for PBXNativeTarget "WizardryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03DE349A1CD5BE2E00DBF6CE /* Debug */,
+				03DE349B1CD5BE2E00DBF6CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03DE34791CD5BE2D00DBF6CE /* Project object */;
+}

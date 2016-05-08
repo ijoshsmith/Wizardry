@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		033684FE1CD7A56100CFB987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033684FD1CD7A56100CFB987 /* AppDelegate.swift */; };
+		033685001CD7A56100CFB987 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033684FF1CD7A56100CFB987 /* ViewController.swift */; };
+		033685031CD7A56100CFB987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033685011CD7A56100CFB987 /* Main.storyboard */; };
+		033685051CD7A56100CFB987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033685041CD7A56100CFB987 /* Assets.xcassets */; };
+		033685081CD7A56100CFB987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033685061CD7A56100CFB987 /* LaunchScreen.storyboard */; };
+		0346BABE1CDEE57D009A69FB /* PasswordStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB21CDEE57D009A69FB /* PasswordStepViewController.swift */; };
+		0346BABF1CDEE57D009A69FB /* PasswordWizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB31CDEE57D009A69FB /* PasswordWizardStep.swift */; };
+		0346BAC01CDEE57D009A69FB /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB41CDEE57D009A69FB /* SignUpService.swift */; };
+		0346BAC11CDEE57D009A69FB /* SignUpWizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0346BAB51CDEE57D009A69FB /* SignUpWizard.storyboard */; };
+		0346BAC21CDEE57D009A69FB /* SignUpWizardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB61CDEE57D009A69FB /* SignUpWizardDataSource.swift */; };
+		0346BAC31CDEE57D009A69FB /* SignUpWizardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB71CDEE57D009A69FB /* SignUpWizardModel.swift */; };
+		0346BAC41CDEE57D009A69FB /* SignUpWizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB81CDEE57D009A69FB /* SignUpWizardViewController.swift */; };
+		0346BAC51CDEE57D009A69FB /* SubmitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BAB91CDEE57D009A69FB /* SubmitStepViewController.swift */; };
+		0346BAC61CDEE57D009A69FB /* SubmitWizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABA1CDEE57D009A69FB /* SubmitWizardStep.swift */; };
+		0346BAC71CDEE57D009A69FB /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABB1CDEE57D009A69FB /* UsernameService.swift */; };
+		0346BAC81CDEE57D009A69FB /* UsernameStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABC1CDEE57D009A69FB /* UsernameStepViewController.swift */; };
+		0346BAC91CDEE57D009A69FB /* UsernameWizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABD1CDEE57D009A69FB /* UsernameWizardStep.swift */; };
+		03FF87251CDB71630020F1EF /* Wizardry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FF87241CDB71630020F1EF /* Wizardry.framework */; };
+		03FF87261CDB71630020F1EF /* Wizardry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03FF87241CDB71630020F1EF /* Wizardry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03FF87271CDB71630020F1EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03FF87261CDB71630020F1EF /* Wizardry.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		033684FA1CD7A56100CFB987 /* WizardryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WizardryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		033684FD1CD7A56100CFB987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		033684FF1CD7A56100CFB987 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		033685021CD7A56100CFB987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		033685041CD7A56100CFB987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		033685071CD7A56100CFB987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		033685091CD7A56100CFB987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0346BAB21CDEE57D009A69FB /* PasswordStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordStepViewController.swift; path = SignUpWizard/PasswordStepViewController.swift; sourceTree = "<group>"; };
+		0346BAB31CDEE57D009A69FB /* PasswordWizardStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordWizardStep.swift; path = SignUpWizard/PasswordWizardStep.swift; sourceTree = "<group>"; };
+		0346BAB41CDEE57D009A69FB /* SignUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpService.swift; path = SignUpWizard/SignUpService.swift; sourceTree = "<group>"; };
+		0346BAB51CDEE57D009A69FB /* SignUpWizard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUpWizard.storyboard; path = SignUpWizard/SignUpWizard.storyboard; sourceTree = "<group>"; };
+		0346BAB61CDEE57D009A69FB /* SignUpWizardDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpWizardDataSource.swift; path = SignUpWizard/SignUpWizardDataSource.swift; sourceTree = "<group>"; };
+		0346BAB71CDEE57D009A69FB /* SignUpWizardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpWizardModel.swift; path = SignUpWizard/SignUpWizardModel.swift; sourceTree = "<group>"; };
+		0346BAB81CDEE57D009A69FB /* SignUpWizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpWizardViewController.swift; path = SignUpWizard/SignUpWizardViewController.swift; sourceTree = "<group>"; };
+		0346BAB91CDEE57D009A69FB /* SubmitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitStepViewController.swift; path = SignUpWizard/SubmitStepViewController.swift; sourceTree = "<group>"; };
+		0346BABA1CDEE57D009A69FB /* SubmitWizardStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitWizardStep.swift; path = SignUpWizard/SubmitWizardStep.swift; sourceTree = "<group>"; };
+		0346BABB1CDEE57D009A69FB /* UsernameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameService.swift; path = SignUpWizard/UsernameService.swift; sourceTree = "<group>"; };
+		0346BABC1CDEE57D009A69FB /* UsernameStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameStepViewController.swift; path = SignUpWizard/UsernameStepViewController.swift; sourceTree = "<group>"; };
+		0346BABD1CDEE57D009A69FB /* UsernameWizardStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameWizardStep.swift; path = SignUpWizard/UsernameWizardStep.swift; sourceTree = "<group>"; };
+		03FF87241CDB71630020F1EF /* Wizardry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Wizardry.framework; path = "/Users/josh/Library/Developer/Xcode/DerivedData/Wizardry-eyvaxgutommgabetngrqfabzwnsb/Build/Products/Debug-iphonesimulator/Wizardry.framework"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		033684F71CD7A56100CFB987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03FF87251CDB71630020F1EF /* Wizardry.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033684F11CD7A56100CFB987 = {
+			isa = PBXGroup;
+			children = (
+				03FF87241CDB71630020F1EF /* Wizardry.framework */,
+				033684FC1CD7A56100CFB987 /* WizardryDemo */,
+				033684FB1CD7A56100CFB987 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		033684FB1CD7A56100CFB987 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				033684FA1CD7A56100CFB987 /* WizardryDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		033684FC1CD7A56100CFB987 /* WizardryDemo */ = {
+			isa = PBXGroup;
+			children = (
+				033685151CD8143500CFB987 /* Config */,
+				033685181CD8628600CFB987 /* Sign Up Wizard */,
+				033684FD1CD7A56100CFB987 /* AppDelegate.swift */,
+				033685011CD7A56100CFB987 /* Main.storyboard */,
+				033684FF1CD7A56100CFB987 /* ViewController.swift */,
+			);
+			path = WizardryDemo;
+			sourceTree = "<group>";
+		};
+		033685151CD8143500CFB987 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				033685041CD7A56100CFB987 /* Assets.xcassets */,
+				033685061CD7A56100CFB987 /* LaunchScreen.storyboard */,
+				033685091CD7A56100CFB987 /* Info.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		033685181CD8628600CFB987 /* Sign Up Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				0346BACD1CDEE5B7009A69FB /* Steps */,
+				0346BAB51CDEE57D009A69FB /* SignUpWizard.storyboard */,
+				0346BAB61CDEE57D009A69FB /* SignUpWizardDataSource.swift */,
+				0346BAB71CDEE57D009A69FB /* SignUpWizardModel.swift */,
+				0346BAB81CDEE57D009A69FB /* SignUpWizardViewController.swift */,
+			);
+			name = "Sign Up Wizard";
+			sourceTree = "<group>";
+		};
+		0346BACA1CDEE590009A69FB /* Username */ = {
+			isa = PBXGroup;
+			children = (
+				0346BABD1CDEE57D009A69FB /* UsernameWizardStep.swift */,
+				0346BABC1CDEE57D009A69FB /* UsernameStepViewController.swift */,
+				0346BABB1CDEE57D009A69FB /* UsernameService.swift */,
+			);
+			name = Username;
+			sourceTree = "<group>";
+		};
+		0346BACB1CDEE598009A69FB /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				0346BAB31CDEE57D009A69FB /* PasswordWizardStep.swift */,
+				0346BAB21CDEE57D009A69FB /* PasswordStepViewController.swift */,
+			);
+			name = Password;
+			sourceTree = "<group>";
+		};
+		0346BACC1CDEE5A7009A69FB /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+				0346BABA1CDEE57D009A69FB /* SubmitWizardStep.swift */,
+				0346BAB91CDEE57D009A69FB /* SubmitStepViewController.swift */,
+				0346BAB41CDEE57D009A69FB /* SignUpService.swift */,
+			);
+			name = Submit;
+			sourceTree = "<group>";
+		};
+		0346BACD1CDEE5B7009A69FB /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				0346BACA1CDEE590009A69FB /* Username */,
+				0346BACB1CDEE598009A69FB /* Password */,
+				0346BACC1CDEE5A7009A69FB /* Submit */,
+			);
+			name = Steps;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		033684F91CD7A56100CFB987 /* WizardryDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0336850C1CD7A56100CFB987 /* Build configuration list for PBXNativeTarget "WizardryDemo" */;
+			buildPhases = (
+				033684F61CD7A56100CFB987 /* Sources */,
+				033684F71CD7A56100CFB987 /* Frameworks */,
+				033684F81CD7A56100CFB987 /* Resources */,
+				03FF87271CDB71630020F1EF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WizardryDemo;
+			productName = WizardryDemo;
+			productReference = 033684FA1CD7A56100CFB987 /* WizardryDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		033684F21CD7A56100CFB987 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = iJoshSmith;
+				TargetAttributes = {
+					033684F91CD7A56100CFB987 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 033684F51CD7A56100CFB987 /* Build configuration list for PBXProject "WizardryDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 033684F11CD7A56100CFB987;
+			productRefGroup = 033684FB1CD7A56100CFB987 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				033684F91CD7A56100CFB987 /* WizardryDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		033684F81CD7A56100CFB987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				033685081CD7A56100CFB987 /* LaunchScreen.storyboard in Resources */,
+				0346BAC11CDEE57D009A69FB /* SignUpWizard.storyboard in Resources */,
+				033685051CD7A56100CFB987 /* Assets.xcassets in Resources */,
+				033685031CD7A56100CFB987 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		033684F61CD7A56100CFB987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0346BAC61CDEE57D009A69FB /* SubmitWizardStep.swift in Sources */,
+				033685001CD7A56100CFB987 /* ViewController.swift in Sources */,
+				0346BAC01CDEE57D009A69FB /* SignUpService.swift in Sources */,
+				0346BAC41CDEE57D009A69FB /* SignUpWizardViewController.swift in Sources */,
+				033684FE1CD7A56100CFB987 /* AppDelegate.swift in Sources */,
+				0346BAC21CDEE57D009A69FB /* SignUpWizardDataSource.swift in Sources */,
+				0346BAC31CDEE57D009A69FB /* SignUpWizardModel.swift in Sources */,
+				0346BAC91CDEE57D009A69FB /* UsernameWizardStep.swift in Sources */,
+				0346BABE1CDEE57D009A69FB /* PasswordStepViewController.swift in Sources */,
+				0346BAC81CDEE57D009A69FB /* UsernameStepViewController.swift in Sources */,
+				0346BAC71CDEE57D009A69FB /* UsernameService.swift in Sources */,
+				0346BAC51CDEE57D009A69FB /* SubmitStepViewController.swift in Sources */,
+				0346BABF1CDEE57D009A69FB /* PasswordWizardStep.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		033685011CD7A56100CFB987 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033685021CD7A56100CFB987 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		033685061CD7A56100CFB987 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033685071CD7A56100CFB987 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0336850A1CD7A56100CFB987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0336850B1CD7A56100CFB987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0336850D1CD7A56100CFB987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WizardryDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.WizardryDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0336850E1CD7A56100CFB987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WizardryDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.WizardryDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		033684F51CD7A56100CFB987 /* Build configuration list for PBXProject "WizardryDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0336850A1CD7A56100CFB987 /* Debug */,
+				0336850B1CD7A56100CFB987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0336850C1CD7A56100CFB987 /* Build configuration list for PBXNativeTarget "WizardryDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0336850D1CD7A56100CFB987 /* Debug */,
+				0336850E1CD7A56100CFB987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 033684F21CD7A56100CFB987 /* Project object */;
+}

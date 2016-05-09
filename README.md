@@ -13,22 +13,33 @@ Important functionality in the wizard framework has thorough unit test coverage.
 
 ## How to use it
 
-Create a `UIViewController` subclass for every step in your wizard. See [UsernameStepViewController](/Demo/WizardryDemo/SignUpWizard/UsernameStepViewController.swift) for an example.
+#### Wizard Step View Controllers
+Create a `UIViewController` subclass for every step/screen in your wizard. 
 
-For every step in your wizard, create a type that adopts the `WizardStep` protocol. An instance of this type owns a wizard step view controller and collects & processes user input for that view controller. See [UsernameWizardStep](/Demo/WizardryDemo/SignUpWizard/UsernameWizardStep.swift) for an example.
+Example: [UsernameStepViewController](/Demo/WizardryDemo/SignUpWizard/UsernameStepViewController.swift)
 
-> Note: It is possible to have the wizard step view controllers adopt the `WizardStep` protocol, if preferred.
+#### Wizard Steps
+For every step in your wizard, create a type that adopts the `WizardStep` protocol. An instance of this type owns a wizard step view controller and collects & processes user input for that view controller. 
 
-Adopt the `WizardDataSource` protocol to determine the order in which a user will view your wizard steps. See [SignUpWizardDataSource](/Demo/WizardryDemo/SignUpWizard/SignUpWizardDataSource.swift) for an example.
+Example: [UsernameWizardStep](/Demo/WizardryDemo/SignUpWizard/UsernameWizardStep.swift)
 
+> Note: It is possible to have wizard step view controllers adopt the `WizardStep` protocol, if preferred.
+
+#### Data Source
+Adopt the `WizardDataSource` protocol to determine the order in which a user will view your wizard steps. 
+
+Example: [SignUpWizardDataSource](/Demo/WizardryDemo/SignUpWizard/SignUpWizardDataSource.swift)
+
+#### Wizard View Controller
 Subclass `WizardViewController` and implement your custom UI design to navigate between wizard step views. You will need to override three methods:
 ```swift
 func navigateToInitialWizardStep(wizardStep: WizardStep)    
 func navigateToNextWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement)
 func navigateToPreviousWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement)
 ```
-See [SignUpWizardViewController](/Demo/WizardryDemo/SignUpWizard/SignUpWizardViewController.swift) in the demo project for more information.
+Example: [SignUpWizardViewController](/Demo/WizardryDemo/SignUpWizard/SignUpWizardViewController.swift)
 
+#### Show The Wizard
 Create your wizard view controller and configure it with your custom data source before presenting it to the user.
 ```swift
 @IBAction func handleShowSignUpWizardButton(sender: UIButton) {
@@ -45,3 +56,4 @@ Create your wizard view controller and configure it with your custom data source
     presentViewController(signUpWizardVC, animated: true, completion: nil)
 }
 ```
+Example: [ViewController](/Demo/WizardryDemo/ViewController.swift)

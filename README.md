@@ -19,7 +19,7 @@ For every step in your wizard, create a type that adopts the `WizardStep` protoc
 
 > Note: It is possible to have the wizard step view controllers adopt the `WizardStep` protocol, if preferred.
 
-Adopt the `WizardDataSource` protocol to determine the order in which a user will view your wizard steps. See [SignUpWizard](/Demo/WizardryDemo/SignUpWizard/SignUpWizardDataSource.swift) for an example.
+Adopt the `WizardDataSource` protocol to determine the order in which a user will view your wizard steps. See [SignUpWizardDataSource](/Demo/WizardryDemo/SignUpWizard/SignUpWizardDataSource.swift) for an example.
 
 Subclass `WizardViewController` and implement your custom UI design to navigate between wizard step views. You will need to override three methods:
 ```swift

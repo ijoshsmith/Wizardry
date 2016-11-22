@@ -12,17 +12,17 @@ import Foundation
 public protocol WizardDelegate: class {
     
     /// Invoked when the user navigates back from the initial wizard step.
-    func wizardDidCancel(wizard: Wizard)
+    func wizardDidCancel(_ wizard: Wizard)
     
     /// Invoked when the user completes the last step of the wizard.
-    func wizardDidFinish(wizard: Wizard)
+    func wizardDidFinish(_ wizard: Wizard)
 
     /// Invoked after the wizard transitions to its initial step for the first time.
-    func wizard(wizard: Wizard, didGoToInitialWizardStep wizardStep: WizardStep)
+    func wizard(_ wizard: Wizard, didGoToInitialWizardStep wizardStep: WizardStep)
     
     /// Invoked after the wizard transitions to the next step.
-    func wizard(wizard: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement)
+    func wizard(_ wizard: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement)
     
     /// Invoked after the wizard transitions to the prior step.
-    func wizard(wizard: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement)
+    func wizard(_ wizard: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement)
 }

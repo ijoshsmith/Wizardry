@@ -10,11 +10,11 @@
 public enum WizardStepPlacement {
     
     /// The first step displayed by a wizard.
-    case Initial
+    case initial
     
     /// A step between the initial and final wizard steps.
-    case Intermediate
+    case intermediate
     
     /// The last step displayed by a wizard.
-    case Final
+    case final
 }

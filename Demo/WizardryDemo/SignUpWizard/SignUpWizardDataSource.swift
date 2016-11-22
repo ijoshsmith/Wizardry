@@ -12,7 +12,7 @@ import Wizardry
 /// Creates the wizard steps managed by the Sign Up Wizard. 
 final class SignUpWizardDataSource {
     
-    private let model: SignUpWizardModel
+    fileprivate let model: SignUpWizardModel
     
     init(model: SignUpWizardModel) {
         self.model = model
@@ -29,17 +29,17 @@ extension SignUpWizardDataSource: WizardDataSource {
         return UsernameWizardStep(model: model)
     }
     
-    func placementOf(wizardStep: WizardStep) -> WizardStepPlacement {
+    func placementOf(_ wizardStep: WizardStep) -> WizardStepPlacement {
         switch wizardStep {
-        case is UsernameWizardStep: return .Initial
-        case is PasswordWizardStep: return .Intermediate
+        case is UsernameWizardStep: return .initial
+        case is PasswordWizardStep: return .intermediate
         default:
             assert(wizardStep is SubmitWizardStep, "Unsupported: \(wizardStep)")
-            return .Final
+            return .final
         }
     }
     
-    func wizardStepAfter(wizardStep: WizardStep) -> WizardStep? {
+    func wizardStepAfter(_ wizardStep: WizardStep) -> WizardStep? {
         switch wizardStep {
         case is UsernameWizardStep: return PasswordWizardStep(model: model)
         case is PasswordWizardStep: return SubmitWizardStep(model: model)
@@ -49,7 +49,7 @@ extension SignUpWizardDataSource: WizardDataSource {
         }
     }
     
-    func wizardStepBefore(wizardStep: WizardStep) -> WizardStep? {
+    func wizardStepBefore(_ wizardStep: WizardStep) -> WizardStep? {
         switch wizardStep {
         case is UsernameWizardStep: return nil
         case is PasswordWizardStep: return UsernameWizardStep(model: model)

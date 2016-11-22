@@ -11,8 +11,8 @@ import UIKit
 /// Displays the first step in the Sign Up Wizard, where a username is entered and validated.
 final class UsernameStepViewController: UIViewController {
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet fileprivate weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate weak var usernameTextField: UITextField!
     
     /// The username to display when the view is first shown.
     var initialUsername: String?
@@ -20,7 +20,7 @@ final class UsernameStepViewController: UIViewController {
     /// The proposed username entered into the text field.
     var currentUsername: String? {
         if let username = usernameTextField.text {
-            return username.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            return username.trimmingCharacters(in: CharacterSet.whitespaces)
         }
         else {
             return nil
@@ -36,7 +36,7 @@ final class UsernameStepViewController: UIViewController {
             else {
                 activityIndicator.stopAnimating()
             }
-            usernameTextField.userInteractionEnabled = (isCheckingUsernameAvailability == false)
+            usernameTextField.isUserInteractionEnabled = (isCheckingUsernameAvailability == false)
         }
     }
     

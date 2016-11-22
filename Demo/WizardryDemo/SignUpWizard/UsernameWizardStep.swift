@@ -12,14 +12,14 @@ import Wizardry
 /// The first step in the Sign Up Wizard, where a username is entered and validated by a service call.
 final class UsernameWizardStep {
     
-    private let model: SignUpWizardModel
-    private let usernameStepViewController: UsernameStepViewController
+    fileprivate let model: SignUpWizardModel
+    fileprivate let usernameStepViewController: UsernameStepViewController
     
     init(model: SignUpWizardModel) {
         self.model = model
         
         let storyboard = UIStoryboard(name: "SignUpWizard", bundle: nil)
-        usernameStepViewController = (storyboard.instantiateViewControllerWithIdentifier("username") as! UsernameStepViewController)
+        usernameStepViewController = (storyboard.instantiateViewController(withIdentifier: "username") as! UsernameStepViewController)
         usernameStepViewController.initialUsername = model.username
     }
 }
@@ -28,15 +28,29 @@ final class UsernameWizardStep {
 
 // MARK: - WizardStep conformance
 
+//{
+//
+///// Returns a view controller that displays this step's user interface.
+//var viewController: UIViewController { get }
+//
+///// Invoked when the user requests a transition to the next wizard step.
+///// The completion handler should be invoked when ready to transition, or to cancel the transition.
+//func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: (_ shouldGoToNextStep: Bool) -> Void)
+//
+///// Invoked when the user requests a transition to the previous wizard step.
+///// The completion handler should be invoked when ready to transition, or to cancel the transition.
+//func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void)
+//}
+
 extension UsernameWizardStep: WizardStep {
     
     var viewController: UIViewController {
         return usernameStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: (shouldGoToNextStep: Bool) -> Void) {
-        guard let username = usernameStepViewController.currentUsername where isValidUsername(username) else {
-            completionHandler(shouldGoToNextStep: false)
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
+        guard let username = usernameStepViewController.currentUsername, isValidUsername(username) else {
+            completionHandler(false)
             return
         }
         
@@ -51,17 +65,17 @@ extension UsernameWizardStep: WizardStep {
                 self.showUsernameUnavailableAlert()
             }
             
-            completionHandler(shouldGoToNextStep: isUsernameAvailable)
+            completionHandler(isUsernameAvailable)
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         // There's no need to copy the current username to the data model, because going back from this step cancels the wizard.
         
         // Take the view out of edit mode, to immediately dismiss the keyboard, otherwise it stays around for a moment too long.
         usernameStepViewController.view.endEditing(true)
         
-        completionHandler(shouldGoToPreviousStep: true)
+        completionHandler(true)
     }
 }
 
@@ -71,7 +85,7 @@ extension UsernameWizardStep: WizardStep {
 
 private extension UsernameWizardStep {
     
-    func isValidUsername(username: String) -> Bool {
+    func isValidUsername(_ username: String) -> Bool {
         return username.characters.count > 0
     }
     
@@ -79,12 +93,12 @@ private extension UsernameWizardStep {
         let alert = UIAlertController(
             title: "Username Unavailable",
             message: "Please choose a different username.",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { _ in
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
         }))
         
-        usernameStepViewController.showViewController(alert, sender: usernameStepViewController)
+        usernameStepViewController.show(alert, sender: usernameStepViewController)
     }
 }

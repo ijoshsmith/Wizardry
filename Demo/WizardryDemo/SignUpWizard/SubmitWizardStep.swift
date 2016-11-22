@@ -67,7 +67,7 @@ extension SubmitWizardStep: WizardStep {
 
 private extension SubmitWizardStep {
 
-    func registerUserWithCompletionHandler(_ completionHandler: (_ success: Bool) -> Void) {
+    func registerUserWithCompletionHandler(_ completionHandler: @escaping (_ success: Bool) -> Void) {
         guard let username = model.username, let password = model.password else {
             assertionFailure("Should not be registering a user without a username and password.")
             completionHandler(false)

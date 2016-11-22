@@ -16,7 +16,7 @@ public protocol WizardStep {
     
     /// Invoked when the user requests a transition to the next wizard step.
     /// The completion handler should be invoked when ready to transition, or to cancel the transition.
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: (_ shouldGoToNextStep: Bool) -> Void)
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void)
     
     /// Invoked when the user requests a transition to the previous wizard step.
     /// The completion handler should be invoked when ready to transition, or to cancel the transition.

@@ -12,14 +12,14 @@ import Wizardry
 /// The third and final step in the Sign Up Wizard, where the new user's account is created.
 final class SubmitWizardStep {
     
-    private let model: SignUpWizardModel
-    private let submitStepViewController: SubmitStepViewController
+    fileprivate let model: SignUpWizardModel
+    fileprivate let submitStepViewController: SubmitStepViewController
     
     init(model: SignUpWizardModel) {
         self.model = model
         
         let storyboard = UIStoryboard(name: "SignUpWizard", bundle: nil)
-        submitStepViewController = (storyboard.instantiateViewControllerWithIdentifier("submit") as! SubmitStepViewController)
+        submitStepViewController = (storyboard.instantiateViewController(withIdentifier: "submit") as! SubmitStepViewController)
         submitStepViewController.initialWantsNewsletter = model.wantsNewsletter
     }
 }
@@ -34,7 +34,7 @@ extension SubmitWizardStep: WizardStep {
         return submitStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: (shouldGoToNextStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
         // Update the data model before sending the user's information to the server.
         model.wantsNewsletter = submitStepViewController.currentWantsNewsletter
         
@@ -44,20 +44,20 @@ extension SubmitWizardStep: WizardStep {
             
             if success {
                 self.showSuccessAlertWithCompletionHandler {
-                    completionHandler(shouldGoToNextStep: true)
+                    completionHandler(true)
                 }
             }
             else {
                 self.showFailureAlertWithCompletionHandler {
-                    completionHandler(shouldGoToNextStep: false)
+                    completionHandler(false)
                 }
             }
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         model.wantsNewsletter = submitStepViewController.currentWantsNewsletter
-        completionHandler(shouldGoToPreviousStep: true)
+        completionHandler(true)
     }
 }
 
@@ -67,10 +67,10 @@ extension SubmitWizardStep: WizardStep {
 
 private extension SubmitWizardStep {
 
-    func registerUserWithCompletionHandler(completionHandler: (success: Bool) -> Void) {
-        guard let username = model.username, password = model.password else {
+    func registerUserWithCompletionHandler(_ completionHandler: (_ success: Bool) -> Void) {
+        guard let username = model.username, let password = model.password else {
             assertionFailure("Should not be registering a user without a username and password.")
-            completionHandler(success: false)
+            completionHandler(false)
             return
         }
         
@@ -81,25 +81,25 @@ private extension SubmitWizardStep {
             completionHandler: completionHandler)
     }
     
-    func showSuccessAlertWithCompletionHandler(completionHandler: Void -> Void) {
+    func showSuccessAlertWithCompletionHandler(_ completionHandler: @escaping (Void) -> Void) {
         showAlertWithTitle("Welcome!", message: "Thanks for signing up, \(model.username!).", completionHandler: completionHandler)
     }
     
-    func showFailureAlertWithCompletionHandler(completionHandler: Void -> Void) {
+    func showFailureAlertWithCompletionHandler(_ completionHandler: @escaping (Void) -> Void) {
         showAlertWithTitle("Sorry", message: "Something went wrong, please try again later.", completionHandler: completionHandler)
     }
     
-    func showAlertWithTitle(title: String, message: String, completionHandler: Void -> Void) {
+    func showAlertWithTitle(_ title: String, message: String, completionHandler: @escaping (Void) -> Void) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { _ in
-            alert.dismissViewControllerAnimated(false, completion: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            alert.dismiss(animated: false, completion: nil)
             completionHandler()
         }))
         
-        submitStepViewController.showViewController(alert, sender: submitStepViewController)
+        submitStepViewController.show(alert, sender: submitStepViewController)
     }
 }

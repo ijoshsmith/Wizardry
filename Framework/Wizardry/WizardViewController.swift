@@ -12,29 +12,29 @@ import UIKit
 /// This view controller does not have a default view, but provides various methods needed
 /// to integrate with your custom wizard view. Subclasses must override three 'navigateTo'
 /// methods to transition between wizard steps, according to your app's UI layout/design.
-public class WizardViewController: UIViewController {
+open class WizardViewController: UIViewController {
     
     /// Returns the `Wizard` that manages this view controller's wizard steps.
-    public private(set) var wizard: Wizard?
+    open fileprivate(set) var wizard: Wizard?
     
-    private var completionHandler: CompletionHandler?
+    fileprivate var completionHandler: CompletionHandler?
     
     
     
     // MARK: - Configuration
     
     /// Signature of a callback to invoke when the wizard is canceled or finished by the user.
-    public typealias CompletionHandler = (canceled: Bool) -> Void
+    public typealias CompletionHandler = (_ canceled: Bool) -> Void
     
     /// Provides this view controller with a data source with which to create a `Wizard` object,
     /// and a completion handler to invoke when the user has canceled or finished using it.
-    public func configureWith(dataSource: WizardDataSource, completionHandler: CompletionHandler) {
+    open func configureWith(_ dataSource: WizardDataSource, completionHandler: @escaping CompletionHandler) {
         assert(wizard == nil, "The wizard view controller can only be configured once.")
         
         self.completionHandler = completionHandler
 
         wizard = Wizard(dataSource: dataSource, delegate: self)
-        if isViewLoaded() {
+        if isViewLoaded {
             wizard!.goToInitialStep()
         }
     }
@@ -43,10 +43,10 @@ public class WizardViewController: UIViewController {
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let wizard = wizard where wizard.currentStep == nil {
+        if let wizard = wizard, wizard.currentStep == nil {
             wizard.goToInitialStep()
         }
     }
@@ -57,20 +57,20 @@ public class WizardViewController: UIViewController {
     
     /// Set this to `true` while an animated navigation transition is occurring.
     /// This avoids having the user start another transition before the current transition finishes.
-    public var isNavigating: Bool = false
+    open var isNavigating: Bool = false
     
     /// Subclasses must override this method to display the initial wizard step. Do not call the super implementation.
-    public func navigateToInitialWizardStep(wizardStep: WizardStep) {
+    open func navigateToInitialWizardStep(_ wizardStep: WizardStep) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
     
     /// Subclasses must override this method to display the next wizard step. Do not call the super implementation.
-    public func navigateToNextWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement) {
+    open func navigateToNextWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
     
     /// Subclasses must override this method to display the previous wizard step. Do not call the super implementation.
-    public func navigateToPreviousWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement) {
+    open func navigateToPreviousWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
 }
@@ -82,21 +82,21 @@ public class WizardViewController: UIViewController {
 public extension WizardViewController {
     
     /// Action method that handles when the user wants to navigate to the next wizard step.
-    @IBAction public func handleGoToNextStep(sender: AnyObject) {
+    @IBAction public func handleGoToNextStep(_ sender: AnyObject) {
         if isNavigating == false {
             wizard?.goToNextStep()
         }
     }
     
     /// Action method that handles when the user wants to navigate to the previous wizard step.
-    @IBAction public func handleGoToPreviousStep(sender: AnyObject) {
+    @IBAction public func handleGoToPreviousStep(_ sender: AnyObject) {
         if isNavigating == false {
             wizard?.goToPreviousStep()
         }
     }
     
     /// Action method that handles when the user wants to stop using the wizard without completing all of its steps.
-    @IBAction public func handleWizardCanceled(sender: AnyObject) {
+    @IBAction public func handleWizardCanceled(_ sender: AnyObject) {
         invokeCompletionHandler(canceled: true)
     }
 }
@@ -107,23 +107,23 @@ public extension WizardViewController {
 
 extension WizardViewController: WizardDelegate {
     
-    public func wizardDidCancel(wizard: Wizard) {
+    public func wizardDidCancel(_ wizard: Wizard) {
         invokeCompletionHandler(canceled: true)
     }
     
-    public func wizardDidFinish(wizard: Wizard) {
+    public func wizardDidFinish(_ wizard: Wizard) {
         invokeCompletionHandler(canceled: false)
     }
 
-    public func wizard(wizard: Wizard, didGoToInitialWizardStep wizardStep: WizardStep) {
+    public func wizard(_ wizard: Wizard, didGoToInitialWizardStep wizardStep: WizardStep) {
         navigateToInitialWizardStep(wizardStep)
     }
     
-    public func wizard(wizard: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
+    public func wizard(_ wizard: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
         navigateToNextWizardStep(wizardStep, placement: placement)
     }
     
-    public func wizard(wizard: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
+    public func wizard(_ wizard: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
         navigateToPreviousWizardStep(wizardStep, placement: placement)
     }
 }
@@ -134,9 +134,9 @@ extension WizardViewController: WizardDelegate {
 
 private extension WizardViewController {
     
-    func invokeCompletionHandler(canceled canceled: Bool) {
+    func invokeCompletionHandler(canceled: Bool) {
         if let completionHandler = completionHandler {
-            completionHandler(canceled: canceled)
+            completionHandler(canceled)
             self.completionHandler = nil
         }
     }

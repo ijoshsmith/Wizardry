@@ -204,6 +204,7 @@
 				TargetAttributes = {
 					03DE34811CD5BE2D00DBF6CE = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 					03DE348B1CD5BE2E00DBF6CE = {
 						CreatedOnToolsVersion = 7.3;
@@ -394,6 +395,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -411,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iJoshSmith.Wizardry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

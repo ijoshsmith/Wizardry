@@ -11,7 +11,7 @@ import UIKit
 /// Displays the second step in the Sign Up Wizard, where the new user's password is entered.
 final class PasswordStepViewController: UIViewController {
     
-    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet fileprivate weak var passwordTextField: UITextField!
     
     /// The password to display when the view is first shown.
     var initialPassword: String?
@@ -19,7 +19,7 @@ final class PasswordStepViewController: UIViewController {
     /// The proposed password entered into the text field.
     var currentPassword: String? {
         if let password = passwordTextField.text {
-            return password.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            return password.trimmingCharacters(in: CharacterSet.whitespaces)
         }
         else {
             return nil

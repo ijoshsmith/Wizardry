@@ -11,10 +11,10 @@ import Foundation
 /// Transitions through a series of steps, enabling the user to perform a task by completing sub-tasks.
 public final class Wizard {
     
-    internal private(set) var currentStep: WizardStep?
-    private let dataSource: WizardDataSource
-    private weak var delegate: WizardDelegate?
-    private var isTransitioning = false
+    internal fileprivate(set) var currentStep: WizardStep?
+    fileprivate let dataSource: WizardDataSource
+    fileprivate weak var delegate: WizardDelegate?
+    fileprivate var isTransitioning = false
 
     public init(dataSource: WizardDataSource, delegate: WizardDelegate) {
         self.dataSource = dataSource
@@ -75,12 +75,12 @@ public final class Wizard {
 
 private extension Wizard {
     
-    func goTo(initialStep: WizardStep) {
+    func goTo(_ initialStep: WizardStep) {
         currentStep = initialStep
         delegate?.wizard(self, didGoToInitialWizardStep: initialStep)
     }
     
-    func goToStepAfter(wizardStep: WizardStep) {
+    func goToStepAfter(_ wizardStep: WizardStep) {
         currentStep = dataSource.wizardStepAfter(wizardStep)
         if let currentStep = currentStep {
             let placement = dataSource.placementOf(currentStep)
@@ -91,7 +91,7 @@ private extension Wizard {
         }
     }
     
-    func goToStepBefore(wizardStep: WizardStep) {
+    func goToStepBefore(_ wizardStep: WizardStep) {
         currentStep = dataSource.wizardStepBefore(wizardStep)
         if let currentStep = currentStep {
             let placement = dataSource.placementOf(currentStep)
@@ -106,5 +106,5 @@ private extension Wizard {
 private func assertMainThread() {
     // A Wizard object is intimately tied to the user interface, which means it 
     // should only be access on the main thread, like all other UI objects.
-    assert(NSThread.isMainThread(), "Wizard should only be used on the main thread.")
+    assert(Thread.isMainThread, "Wizard should only be used on the main thread.")
 }

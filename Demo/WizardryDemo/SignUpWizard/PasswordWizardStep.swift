@@ -12,14 +12,14 @@ import Wizardry
 /// The second step in the Sign Up Wizard, where the new user's password is entered.
 final class PasswordWizardStep {
     
-    private let model: SignUpWizardModel
-    private let passwordStepViewController: PasswordStepViewController
+    fileprivate let model: SignUpWizardModel
+    fileprivate let passwordStepViewController: PasswordStepViewController
     
     init(model: SignUpWizardModel) {
         self.model = model
         
         let storyboard = UIStoryboard(name: "SignUpWizard", bundle: nil)
-        passwordStepViewController = (storyboard.instantiateViewControllerWithIdentifier("password") as! PasswordStepViewController)
+        passwordStepViewController = (storyboard.instantiateViewController(withIdentifier: "password") as! PasswordStepViewController)
         passwordStepViewController.initialPassword = model.password
     }
 }
@@ -34,20 +34,20 @@ extension PasswordWizardStep: WizardStep {
         return passwordStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: (shouldGoToNextStep: Bool) -> Void) {
-        if let password = passwordStepViewController.currentPassword where isValidPassword(password) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: (_ shouldGoToNextStep: Bool) -> Void) {
+        if let password = passwordStepViewController.currentPassword, isValidPassword(password) {
             model.password = password
-            completionHandler(shouldGoToNextStep: true)
+            completionHandler(true)
         }
         else {
             self.passwordStepViewController.eraseCurrentPassword()
-            completionHandler(shouldGoToNextStep: false)
+            completionHandler(false)
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         model.password = passwordStepViewController.currentPassword
-        completionHandler(shouldGoToPreviousStep: true)
+        completionHandler(true)
     }
 }
 
@@ -57,7 +57,7 @@ extension PasswordWizardStep: WizardStep {
 
 private extension PasswordWizardStep {
 
-    func isValidPassword(password: String) -> Bool {
+    func isValidPassword(_ password: String) -> Bool {
         return password.characters.count >= 8
     }
 }

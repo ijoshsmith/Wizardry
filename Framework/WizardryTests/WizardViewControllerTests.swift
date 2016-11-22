@@ -15,7 +15,7 @@ class WizardViewControllerTests: XCTestCase {
         
         var navigateToInitialWizardStep_callCount = 0
         var navigateToInitialWizardStep_wizardStep: WizardStep?
-        override func navigateToInitialWizardStep(wizardStep: WizardStep) {
+        override func navigateToInitial(wizardStep: WizardStep) {
             navigateToInitialWizardStep_callCount += 1
             navigateToInitialWizardStep_wizardStep = wizardStep
         }
@@ -23,7 +23,7 @@ class WizardViewControllerTests: XCTestCase {
         var navigateToNextWizardStep_callCount = 0
         var navigateToNextWizardStep_wizardStep: WizardStep?
         var navigateToNextWizardStep_placement: WizardStepPlacement?
-        override func navigateToNextWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement) {
+        override func navigateToNext(wizardStep: WizardStep, placement: WizardStepPlacement) {
             navigateToNextWizardStep_callCount += 1
             navigateToNextWizardStep_wizardStep = wizardStep
             navigateToNextWizardStep_placement = placement
@@ -32,7 +32,7 @@ class WizardViewControllerTests: XCTestCase {
         var navigateToPreviousWizardStep_callCount = 0
         var navigateToPreviousWizardStep_wizardStep: WizardStep?
         var navigateToPreviousWizardStep_placement: WizardStepPlacement?
-        override func navigateToPreviousWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement) {
+        override func navigateToPrevious(wizardStep: WizardStep, placement: WizardStepPlacement) {
             navigateToPreviousWizardStep_callCount += 1
             navigateToPreviousWizardStep_wizardStep = wizardStep
             navigateToPreviousWizardStep_placement = placement
@@ -52,19 +52,19 @@ class WizardViewControllerTests: XCTestCase {
     
     func test_allStepsFinished() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
-        let notCanceledExpectation = expectationWithDescription("not canceled")
+        let notCanceledExpectation = expectation(description: "not canceled")
         wizardVC.configureWith(dataSource) { (canceled: Bool) in
             if canceled == false {
                 notCanceledExpectation.fulfill()
             }
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         let wizard = wizardVC.wizard!
         XCTAssert(wizard.currentStep! == stepA)
@@ -75,7 +75,7 @@ class WizardViewControllerTests: XCTestCase {
         wizardVC.handleGoToNextStep(fakeSender)
         XCTAssertNil(wizard.currentStep)
         
-        waitForExpectationsWithTimeout(0.1, handler: nil)
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     
@@ -84,46 +84,46 @@ class WizardViewControllerTests: XCTestCase {
     
     func test_canceledByGoingBackFromInitialStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
-        let canceledExpectation = expectationWithDescription("canceled")
+        let canceledExpectation = expectation(description: "canceled")
         wizardVC.configureWith(dataSource) { (canceled: Bool) in
             if canceled {
                 canceledExpectation.fulfill()
             }
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         // Going back a step from the initial step causes the wizard to be canceled.
         wizardVC.handleGoToPreviousStep(fakeSender)
         
-        waitForExpectationsWithTimeout(0.1, handler: nil)
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     func test_explicitlyCanceled() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
-        let canceledExpectation = expectationWithDescription("canceled")
+        let canceledExpectation = expectation(description: "canceled")
         wizardVC.configureWith(dataSource) { (canceled: Bool) in
             if canceled {
                 canceledExpectation.fulfill()
             }
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         // Simulate tapping a 'Cancel' button in the UI.
         wizardVC.handleWizardCanceled(fakeSender)
         
-        waitForExpectationsWithTimeout(0.1, handler: nil)
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     
@@ -132,8 +132,8 @@ class WizardViewControllerTests: XCTestCase {
     
     func test_navigateToInitialWizardStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
@@ -141,7 +141,7 @@ class WizardViewControllerTests: XCTestCase {
             XCTFail("Unexpected completion handler invocation.")
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         // Make sure that configuring the wizard view controller causes it to go to the initial step.
         XCTAssert(wizardVC.navigateToInitialWizardStep_callCount == 1)
@@ -150,8 +150,8 @@ class WizardViewControllerTests: XCTestCase {
     
     func test_navigateToNextWizardStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
@@ -159,7 +159,7 @@ class WizardViewControllerTests: XCTestCase {
             XCTFail("Unexpected completion handler invocation.")
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         // Simulate a 'Next' button in the UI being tapped.
         wizardVC.handleGoToNextStep(fakeSender)
@@ -167,13 +167,13 @@ class WizardViewControllerTests: XCTestCase {
         // Make sure the wizard view controller is navigating to the correct next step.
         XCTAssert(wizardVC.navigateToNextWizardStep_callCount == 1)
         XCTAssert(wizardVC.navigateToNextWizardStep_wizardStep! == stepB)
-        XCTAssert(wizardVC.navigateToNextWizardStep_placement! == .Final)
+        XCTAssert(wizardVC.navigateToNextWizardStep_placement! == .final)
     }
     
     func test_navigateToPreviousWizardStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         wizardVC = TestWizardViewController()
         
@@ -181,7 +181,7 @@ class WizardViewControllerTests: XCTestCase {
             XCTFail("Unexpected completion handler invocation.")
         }
         
-        forceTransitionToInitialStep(wizardVC)
+        forceTransitionToInitialStep(wizardVC: wizardVC)
         
         // Simulate a 'Next' button in the UI being tapped.
         wizardVC.handleGoToNextStep(fakeSender)
@@ -192,6 +192,6 @@ class WizardViewControllerTests: XCTestCase {
         // Make sure the wizard view controller is navigating to the correct previous step.
         XCTAssert(wizardVC.navigateToPreviousWizardStep_callCount == 1)
         XCTAssert(wizardVC.navigateToPreviousWizardStep_wizardStep! == stepA)
-        XCTAssert(wizardVC.navigateToPreviousWizardStep_placement! == .Initial)
+        XCTAssert(wizardVC.navigateToPreviousWizardStep_placement! == .initial)
     }
 }

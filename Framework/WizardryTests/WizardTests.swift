@@ -14,8 +14,8 @@ class WizardTests: XCTestCase {
     
     func test_goToInitialStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: .WizardDidGoToInitialWizardStep),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -35,8 +35,8 @@ class WizardTests: XCTestCase {
     
     func test_goToNextStep_thereIsAnotherStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidGoToNextWizardStep]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -47,16 +47,16 @@ class WizardTests: XCTestCase {
         // The wizard transitions from step A to step B.
         XCTAssert(delegate.wizardDidGoToNextWizardStep_callCount == 1)
         XCTAssert(delegate.wizardDidGoToNextWizardStep_wizardStep! == stepB)
-        XCTAssert(delegate.wizardDidGoToNextWizardStep_placement! == .Final)
+        XCTAssert(delegate.wizardDidGoToNextWizardStep_placement! == .final)
         
         XCTAssert(delegate.unexpectedMethodsCalled.isEmpty)
     }
     
     func test_goToNextStep_hasIntermediateStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
-        stepC = MockStep("C"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
+        stepC = MockStep(name: "C"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB, stepC]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidGoToNextWizardStep]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -65,14 +65,14 @@ class WizardTests: XCTestCase {
         wizard.goToNextStep()
         
         // The wizard transitions from step A to step B, which is an intermediate step (because it's between A and C).
-        XCTAssert(delegate.wizardDidGoToNextWizardStep_placement! == .Intermediate)
+        XCTAssert(delegate.wizardDidGoToNextWizardStep_placement! == .intermediate)
         
         XCTAssert(delegate.unexpectedMethodsCalled.isEmpty)
     }
     
     func test_goToNextStep_thereIsOnlyOneStep_wizardFinishes() {
         let
-        theOnlyStep = MockStep("A"),
+        theOnlyStep = MockStep(name: "A"),
         dataSource = MockDataSource(mockSteps: [theOnlyStep]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidFinish]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -88,8 +88,8 @@ class WizardTests: XCTestCase {
     
     func test_goToNextStep_isOnLastStep_wizardFinishes() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidGoToNextWizardStep, .WizardDidFinish]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -114,8 +114,8 @@ class WizardTests: XCTestCase {
     
     func test_goToPreviousStep_isOnInitialStep_wizardCancels() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidCancel]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -131,8 +131,8 @@ class WizardTests: XCTestCase {
     
     func test_goToPreviousStep_isOnSecondStep_wizardGoesBackToInitialStep() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidGoToNextWizardStep, .WizardDidGoToPreviousWizardStep]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -144,7 +144,7 @@ class WizardTests: XCTestCase {
         // The wizard transitions from step B to step A.
         XCTAssert(delegate.wizardDidGoToPreviousWizardStep_callCount == 1)
         XCTAssert(delegate.wizardDidGoToPreviousWizardStep_wizardStep! == stepA)
-        XCTAssert(delegate.wizardDidGoToPreviousWizardStep_placement! == .Initial)
+        XCTAssert(delegate.wizardDidGoToPreviousWizardStep_placement! == .initial)
         
         XCTAssert(delegate.unexpectedMethodsCalled.isEmpty)
     }
@@ -155,7 +155,7 @@ class WizardTests: XCTestCase {
     
     func test_goToNextStep_currentStepCancelsTransition() {
         let
-        stepA = MockStep("A", shouldGoToNextStep: false),
+        stepA = MockStep(name: "A", shouldGoToNextStep: false),
         dataSource = MockDataSource(mockSteps: [stepA]),
         delegate = MockDelegate(expectedMethods: .WizardDidGoToInitialWizardStep),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -168,7 +168,7 @@ class WizardTests: XCTestCase {
     
     func test_goToPreviousStep_currentStepCancelsTransition() {
         let
-        stepA = MockStep("A", shouldGoToPreviousStep: false),
+        stepA = MockStep(name: "A", shouldGoToPreviousStep: false),
         dataSource = MockDataSource(mockSteps: [stepA]),
         delegate = MockDelegate(expectedMethods: .WizardDidGoToInitialWizardStep),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -185,8 +185,8 @@ class WizardTests: XCTestCase {
     
     func test_goToNextStep_calledAgainBeforeInvokingCompletionHandler() {
         let
-        stepA = MockStep("A", shouldInvokeCompletionHandler: false),
-        stepB = MockStep("B"),
+        stepA = MockStep(name: "A", shouldInvokeCompletionHandler: false),
+        stepB = MockStep(name: "B"),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: .WizardDidGoToInitialWizardStep),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)
@@ -203,8 +203,8 @@ class WizardTests: XCTestCase {
     
     func test_goToPreviousStep_calledAgainBeforeInvokingCompletionHandler() {
         let
-        stepA = MockStep("A"),
-        stepB = MockStep("B", shouldInvokeCompletionHandler: false),
+        stepA = MockStep(name: "A"),
+        stepB = MockStep(name: "B", shouldInvokeCompletionHandler: false),
         dataSource = MockDataSource(mockSteps: [stepA, stepB]),
         delegate = MockDelegate(expectedMethods: [.WizardDidGoToInitialWizardStep, .WizardDidGoToNextWizardStep]),
         wizard = Wizard(dataSource: dataSource, delegate: delegate)

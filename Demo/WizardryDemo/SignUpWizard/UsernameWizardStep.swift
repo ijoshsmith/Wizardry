@@ -48,7 +48,7 @@ extension UsernameWizardStep: WizardStep {
         return usernameStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
         guard let username = usernameStepViewController.currentUsername, isValidUsername(username) else {
             completionHandler(false)
             return
@@ -69,9 +69,8 @@ extension UsernameWizardStep: WizardStep {
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         // There's no need to copy the current username to the data model, because going back from this step cancels the wizard.
-        
         // Take the view out of edit mode, to immediately dismiss the keyboard, otherwise it stays around for a moment too long.
         usernameStepViewController.view.endEditing(true)
         

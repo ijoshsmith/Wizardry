@@ -15,11 +15,11 @@ public protocol WizardDataSource {
     var initialWizardStep: WizardStep { get }
     
     /// Returns the relative position of the specified wizard step.
-    func placementOf(_ wizardStep: WizardStep) -> WizardStepPlacement
+    func placementOf(wizardStep: WizardStep) -> WizardStepPlacement
     
     /// Returns the wizard step following the specified step, if one exists.
-    func wizardStepAfter(_ wizardStep: WizardStep) -> WizardStep?
+    func wizardStepAfter(wizardStep: WizardStep) -> WizardStep?
     
     /// Returns the wizard step preceding the specified step, if one exists.
-    func wizardStepBefore(_ wizardStep: WizardStep) -> WizardStep?
+    func wizardStepBefore(wizardStep: WizardStep) -> WizardStep?
 }

@@ -10,7 +10,7 @@ import XCTest
 
 final class MockDelegate: WizardDelegate {
     
-    struct Methods: OptionSetType {
+    struct Methods: OptionSet {
         let rawValue: Int
         
         static let
@@ -31,7 +31,7 @@ final class MockDelegate: WizardDelegate {
     var wizardDidCancel_callCount = 0
     func wizardDidCancel(_: Wizard) {
         guard expectedMethods.contains(.WizardDidCancel) else {
-            unexpectedMethodsCalled.unionInPlace(.WizardDidCancel)
+            unexpectedMethodsCalled.formUnion(.WizardDidCancel)
             return
         }
         wizardDidCancel_callCount += 1
@@ -40,7 +40,7 @@ final class MockDelegate: WizardDelegate {
     var wizardDidFinish_callCount = 0
     func wizardDidFinish(_: Wizard) {
         guard expectedMethods.contains(.WizardDidFinish) else {
-            unexpectedMethodsCalled.unionInPlace(.WizardDidFinish)
+            unexpectedMethodsCalled.formUnion(.WizardDidFinish)
             return
         }
         wizardDidFinish_callCount += 1
@@ -50,7 +50,7 @@ final class MockDelegate: WizardDelegate {
     var wizardDidGoToInitialWizardStep_wizardStep: WizardStep?
     func wizard(_: Wizard, didGoToInitialWizardStep wizardStep: WizardStep) {
         guard expectedMethods.contains(.WizardDidGoToInitialWizardStep) else {
-            unexpectedMethodsCalled.unionInPlace(.WizardDidGoToInitialWizardStep)
+            unexpectedMethodsCalled.formUnion(.WizardDidGoToInitialWizardStep)
             return
         }
         wizardDidGoToInitialWizardStep_callCount += 1
@@ -62,7 +62,7 @@ final class MockDelegate: WizardDelegate {
     var wizardDidGoToNextWizardStep_placement: WizardStepPlacement?
     func wizard(_: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
         guard expectedMethods.contains(.WizardDidGoToNextWizardStep) else {
-            unexpectedMethodsCalled.unionInPlace(.WizardDidGoToNextWizardStep)
+            unexpectedMethodsCalled.formUnion(.WizardDidGoToNextWizardStep)
             return
         }
         wizardDidGoToNextWizardStep_callCount += 1
@@ -75,7 +75,7 @@ final class MockDelegate: WizardDelegate {
     var wizardDidGoToPreviousWizardStep_placement: WizardStepPlacement?
     func wizard(_: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
         guard expectedMethods.contains(.WizardDidGoToPreviousWizardStep) else {
-            unexpectedMethodsCalled.unionInPlace(.WizardDidGoToPreviousWizardStep)
+            unexpectedMethodsCalled.formUnion(.WizardDidGoToPreviousWizardStep)
             return
         }
         wizardDidGoToPreviousWizardStep_callCount += 1

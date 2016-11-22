@@ -10,12 +10,12 @@ import UIKit
 
 final class MockStep: WizardStep {
     
-    private let name: String
+    fileprivate let name: String
     private let shouldGoToNextStep: Bool
     private let shouldGoToPreviousStep: Bool
     private let shouldInvokeCompletionHandler: Bool
     
-    init(_ name: String, shouldGoToNextStep: Bool = true, shouldGoToPreviousStep: Bool = true, shouldInvokeCompletionHandler: Bool = true) {
+    init(name: String, shouldGoToNextStep: Bool = true, shouldGoToPreviousStep: Bool = true, shouldInvokeCompletionHandler: Bool = true) {
         self.name = name
         self.shouldGoToNextStep = shouldGoToNextStep
         self.shouldGoToPreviousStep = shouldGoToPreviousStep
@@ -26,15 +26,15 @@ final class MockStep: WizardStep {
         return UIViewController()
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: (shouldGoToNextStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: @escaping (Bool) -> Void) {
         if shouldInvokeCompletionHandler {
-            completionHandler(shouldGoToNextStep: shouldGoToNextStep)
+            completionHandler(shouldGoToNextStep)
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (Bool) -> Void) {
         if shouldInvokeCompletionHandler {
-            completionHandler(shouldGoToPreviousStep: shouldGoToPreviousStep)
+            completionHandler(shouldGoToPreviousStep)
         }
     }
 }

@@ -81,9 +81,9 @@ private extension Wizard {
     }
     
     func goToStepAfter(_ wizardStep: WizardStep) {
-        currentStep = dataSource.wizardStepAfter(wizardStep)
+        currentStep = dataSource.wizardStepAfter(wizardStep: wizardStep)
         if let currentStep = currentStep {
-            let placement = dataSource.placementOf(currentStep)
+            let placement = dataSource.placementOf(wizardStep: currentStep)
             delegate?.wizard(self, didGoToNextWizardStep: currentStep, placement: placement)
         }
         else {
@@ -92,9 +92,9 @@ private extension Wizard {
     }
     
     func goToStepBefore(_ wizardStep: WizardStep) {
-        currentStep = dataSource.wizardStepBefore(wizardStep)
+        currentStep = dataSource.wizardStepBefore(wizardStep: wizardStep)
         if let currentStep = currentStep {
-            let placement = dataSource.placementOf(currentStep)
+            let placement = dataSource.placementOf(wizardStep: currentStep)
             delegate?.wizard(self, didGoToPreviousWizardStep: currentStep, placement: placement)
         }
         else {

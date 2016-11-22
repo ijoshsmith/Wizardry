@@ -35,18 +35,18 @@ final class SignUpWizardViewController: WizardViewController {
     
     // MARK: - Navigation API overrides
     
-    override func navigateToInitialWizardStep(_ wizardStep: WizardStep) {
+    override func navigateToInitial(wizardStep: WizardStep) {
         updateNavigationBarFor(WizardStepPlacement.initial)
         addChildWizardStepViewController(wizardStep.viewController)
         currentStepViewController = wizardStep.viewController
     }
     
-    override func navigateToNextWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
+    override func navigateToNext(wizardStep: WizardStep, placement: WizardStepPlacement) {
         updateNavigationBarFor(placement)
         slideIn(wizardStep.viewController, fromTheRight: true)
     }
     
-    override func navigateToPreviousWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
+    override func navigateToPrevious(wizardStep: WizardStep, placement: WizardStepPlacement) {
         updateNavigationBarFor(placement)
         slideIn(wizardStep.viewController, fromTheRight: false)
     }

@@ -34,7 +34,7 @@ extension PasswordWizardStep: WizardStep {
         return passwordStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
         if let password = passwordStepViewController.currentPassword, isValidPassword(password) {
             model.password = password
             completionHandler(true)
@@ -45,7 +45,7 @@ extension PasswordWizardStep: WizardStep {
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         model.password = passwordStepViewController.currentPassword
         completionHandler(true)
     }

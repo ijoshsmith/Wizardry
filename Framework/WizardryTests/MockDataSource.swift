@@ -21,25 +21,25 @@ final class MockDataSource: WizardDataSource {
     }
     
     func placementOf(wizardStep: WizardStep) -> WizardStepPlacement {
-        switch indexOf(wizardStep) {
-        case 0:                   return .Initial
-        case mockSteps.count - 1: return .Final
-        default:                  return .Intermediate
+        switch indexOf(wizardStep: wizardStep) {
+        case 0:                   return .initial
+        case mockSteps.count - 1: return .final
+        default:                  return .intermediate
         }
     }
     
     func wizardStepAfter(wizardStep: WizardStep) -> WizardStep? {
-        let index = indexOf(wizardStep) + 1
+        let index = indexOf(wizardStep: wizardStep) + 1
         return index < mockSteps.count ? mockSteps[index] : nil
     }
     
     func wizardStepBefore(wizardStep: WizardStep) -> WizardStep? {
-        let index = indexOf(wizardStep) - 1
+        let index = indexOf(wizardStep: wizardStep) - 1
         return -1 < index ? mockSteps[index] : nil
     }
     
     private func indexOf(wizardStep: WizardStep) -> Int {
-        let index = mockSteps.indexOf { $0 == wizardStep }
+        let index = mockSteps.index { $0 == wizardStep }
         return index!
     }
 }

@@ -60,17 +60,17 @@ open class WizardViewController: UIViewController {
     open var isNavigating: Bool = false
     
     /// Subclasses must override this method to display the initial wizard step. Do not call the super implementation.
-    open func navigateToInitialWizardStep(_ wizardStep: WizardStep) {
+    open func navigateToInitial(wizardStep: WizardStep) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
     
     /// Subclasses must override this method to display the next wizard step. Do not call the super implementation.
-    open func navigateToNextWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
+    open func navigateToNext(wizardStep: WizardStep, placement: WizardStepPlacement) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
     
     /// Subclasses must override this method to display the previous wizard step. Do not call the super implementation.
-    open func navigateToPreviousWizardStep(_ wizardStep: WizardStep, placement: WizardStepPlacement) {
+    open func navigateToPrevious(wizardStep: WizardStep, placement: WizardStepPlacement) {
         assertionFailure("\(Mirror(reflecting: self).subjectType) does not properly override \(#function)")
     }
 }
@@ -116,15 +116,15 @@ extension WizardViewController: WizardDelegate {
     }
 
     public func wizard(_ wizard: Wizard, didGoToInitialWizardStep wizardStep: WizardStep) {
-        navigateToInitialWizardStep(wizardStep)
+        navigateToInitial(wizardStep: wizardStep)
     }
     
     public func wizard(_ wizard: Wizard, didGoToNextWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
-        navigateToNextWizardStep(wizardStep, placement: placement)
+        navigateToNext(wizardStep: wizardStep, placement: placement)
     }
     
     public func wizard(_ wizard: Wizard, didGoToPreviousWizardStep wizardStep: WizardStep, placement: WizardStepPlacement) {
-        navigateToPreviousWizardStep(wizardStep, placement: placement)
+        navigateToPrevious(wizardStep: wizardStep, placement: placement)
     }
 }
 

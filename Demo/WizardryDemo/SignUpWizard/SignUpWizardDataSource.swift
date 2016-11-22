@@ -29,7 +29,7 @@ extension SignUpWizardDataSource: WizardDataSource {
         return UsernameWizardStep(model: model)
     }
     
-    func placementOf(_ wizardStep: WizardStep) -> WizardStepPlacement {
+    func placementOf(wizardStep: WizardStep) -> WizardStepPlacement {
         switch wizardStep {
         case is UsernameWizardStep: return .initial
         case is PasswordWizardStep: return .intermediate
@@ -39,7 +39,7 @@ extension SignUpWizardDataSource: WizardDataSource {
         }
     }
     
-    func wizardStepAfter(_ wizardStep: WizardStep) -> WizardStep? {
+    func wizardStepAfter(wizardStep: WizardStep) -> WizardStep? {
         switch wizardStep {
         case is UsernameWizardStep: return PasswordWizardStep(model: model)
         case is PasswordWizardStep: return SubmitWizardStep(model: model)
@@ -49,7 +49,7 @@ extension SignUpWizardDataSource: WizardDataSource {
         }
     }
     
-    func wizardStepBefore(_ wizardStep: WizardStep) -> WizardStep? {
+    func wizardStepBefore(wizardStep: WizardStep) -> WizardStep? {
         switch wizardStep {
         case is UsernameWizardStep: return nil
         case is PasswordWizardStep: return UsernameWizardStep(model: model)

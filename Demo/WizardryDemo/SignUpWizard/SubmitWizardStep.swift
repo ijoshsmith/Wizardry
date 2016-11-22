@@ -34,7 +34,7 @@ extension SubmitWizardStep: WizardStep {
         return submitStepViewController
     }
     
-    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(_ completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToNextStepWithCompletionHandler(completionHandler: @escaping (_ shouldGoToNextStep: Bool) -> Void) {
         // Update the data model before sending the user's information to the server.
         model.wantsNewsletter = submitStepViewController.currentWantsNewsletter
         
@@ -55,7 +55,7 @@ extension SubmitWizardStep: WizardStep {
         }
     }
     
-    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(_ completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
+    func doWorkBeforeWizardGoesToPreviousStepWithCompletionHandler(completionHandler: (_ shouldGoToPreviousStep: Bool) -> Void) {
         model.wantsNewsletter = submitStepViewController.currentWantsNewsletter
         completionHandler(true)
     }

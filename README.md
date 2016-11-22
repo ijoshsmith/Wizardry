@@ -33,9 +33,9 @@ Example: [SignUpWizardDataSource](/Demo/WizardryDemo/SignUpWizard/SignUpWizardDa
 #### Wizard View Controller
 Subclass `WizardViewController` and implement your custom UI design to navigate between wizard step views. You will need to override three methods:
 ```swift
-func navigateToInitialWizardStep(wizardStep: WizardStep)    
-func navigateToNextWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement)
-func navigateToPreviousWizardStep(wizardStep: WizardStep, placement: WizardStepPlacement)
+func navigateToInitial(wizardStep: WizardStep)    
+func navigateToNext(wizardStep: WizardStep, placement: WizardStepPlacement)
+func navigateToPrevious(wizardStep: WizardStep, placement: WizardStepPlacement)
 ```
 Example: [SignUpWizardViewController](/Demo/WizardryDemo/SignUpWizard/SignUpWizardViewController.swift)
 

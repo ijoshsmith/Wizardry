@@ -24,8 +24,7 @@
 		0346BAC71CDEE57D009A69FB /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABB1CDEE57D009A69FB /* UsernameService.swift */; };
 		0346BAC81CDEE57D009A69FB /* UsernameStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABC1CDEE57D009A69FB /* UsernameStepViewController.swift */; };
 		0346BAC91CDEE57D009A69FB /* UsernameWizardStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346BABD1CDEE57D009A69FB /* UsernameWizardStep.swift */; };
-		03FF87251CDB71630020F1EF /* Wizardry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FF87241CDB71630020F1EF /* Wizardry.framework */; };
-		03FF87261CDB71630020F1EF /* Wizardry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03FF87241CDB71630020F1EF /* Wizardry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		374EF6041DE4842400B3BD44 /* Wizardry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 374EF6031DE4842400B3BD44 /* Wizardry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				03FF87261CDB71630020F1EF /* Wizardry.framework in Embed Frameworks */,
+				374EF6041DE4842400B3BD44 /* Wizardry.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +61,7 @@
 		0346BABB1CDEE57D009A69FB /* UsernameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameService.swift; path = SignUpWizard/UsernameService.swift; sourceTree = "<group>"; };
 		0346BABC1CDEE57D009A69FB /* UsernameStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameStepViewController.swift; path = SignUpWizard/UsernameStepViewController.swift; sourceTree = "<group>"; };
 		0346BABD1CDEE57D009A69FB /* UsernameWizardStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameWizardStep.swift; path = SignUpWizard/UsernameWizardStep.swift; sourceTree = "<group>"; };
-		03FF87241CDB71630020F1EF /* Wizardry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Wizardry.framework; path = "/Users/josh/Library/Developer/Xcode/DerivedData/Wizardry-eyvaxgutommgabetngrqfabzwnsb/Build/Products/Debug-iphonesimulator/Wizardry.framework"; sourceTree = "<absolute>"; };
+		374EF6031DE4842400B3BD44 /* Wizardry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Wizardry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FF87251CDB71630020F1EF /* Wizardry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +78,7 @@
 		033684F11CD7A56100CFB987 = {
 			isa = PBXGroup;
 			children = (
-				03FF87241CDB71630020F1EF /* Wizardry.framework */,
+				374EF6031DE4842400B3BD44 /* Wizardry.framework */,
 				033684FC1CD7A56100CFB987 /* WizardryDemo */,
 				033684FB1CD7A56100CFB987 /* Products */,
 			);
